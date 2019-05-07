@@ -1,7 +1,12 @@
 package com.pluralsight;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.inject.Inject;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ShoppingCart {
  @Inject
@@ -21,6 +26,16 @@ public class ShoppingCart {
  public void addCartItem(CartItem cartItem) {
   cartItems.add(cartItem);
  }
+ 
+ protected void deleteCartItem(int index) {
+	  try {			
+			 cartItems.remove(index);
+		 }
+		 catch(IndexOutOfBoundsException e)
+		 {
+			 e.printStackTrace();
+		 }	  
+} 
 
  public CartItem getCartItem(int iItemIndex) {
   CartItem cartItem = null;
