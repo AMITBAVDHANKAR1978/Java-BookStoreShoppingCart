@@ -27,7 +27,7 @@ public class ShoppingCart {
   cartItems.add(cartItem);
  }
  
- protected void deleteCartItem(int index) {
+ public void deleteCartItem(int index) {
 	  try {			
 			 cartItems.remove(index);
 		 }
